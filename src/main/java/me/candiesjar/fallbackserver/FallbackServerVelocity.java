@@ -188,12 +188,18 @@ public class FallbackServerVelocity {
 
     private void checkPlugins() {
 
-        if (getServer().getPluginManager().getPlugin("ajQueue").isPresent()) {
+        if (
+                getServer().getPluginManager().getPlugin("ajQueue").isPresent() ||
+                getServer().getPluginManager().getPlugin("ajqueue").isPresent()
+        ) {
             getLogger().info("§7[§b!§7] Hooking in AjQueue");
             setAjQueue(true);
         }
 
-        if (getServer().getPluginManager().getPlugin("Maintenance").isPresent()) {
+        if (
+                getServer().getPluginManager().getPlugin("Maintenance").isPresent() || 
+                getServer().getPluginManager().getPlugin("maintenance").isPresent()
+        ) {
             getLogger().info("§7[§b!§7] Hooking in Maintenance");
             setMaintenance(true);
         }
